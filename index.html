@@ -1,260 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     /> -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap" rel="stylesheet" />
+  <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
-    />
-    <title>Trello Clone</title>
-  </head>
+    /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <body>
-    <h1 class="text-center" style="margin-bottom: 2rem;">Trello Clone</h1>
-    <main class="container-fluid">
-      <article class="row">
-        <!-- 3 Lists -->
-        <section
-          id="todoList"
-          class="col-md rounded pb-md-5 m-1 d-inline-block"
-          style="border: solid 4px green !important;"
-        >
-          <h2 class="py-2">To-do</h2>
-          <div class="list"></div>
-        </section>
-        <section
-          id="progressList"
-          class="col-md rounded pb-md-5 m-1 d-inline-block"
-          style="border: solid 4px green !important;"
-        >
-          <h2 class="py-2">In progress</h2>
-          <div class="list"></div>
-        </section>
-        <section
-          id="doneList"
-          class="col-md rounded pb-md-5 m-1 d-inline-block"
-          style="border: solid 4px green !important;"
-        >
-          <h2 class="py-2">Done</h2>
-          <div class="list"></div>
-        </section>
-        <!-- form & add button -->
-        <button
-          id="addNew"
-          type="button"
-          class="btn btn-primary btn-small offset-1"
-          style="height: 3rem; margin-right: 1rem;"
-          data-toggle="modal"
-        >✚</button>
-        </button>
-        <section
-          id="addNewTask"
-          class="modal fade"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="addNewform"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="newTask modal-title">Add New Task</h2>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form data-state="post" role="form">
-                  <div class="form-group">
-                    <label for="taskName">Task's name</label>
-                    <input
-                      type="text"
-                      name="taskName"
-                      id="taskName"
-                      class="form-control"
-                      required
-                    />
-                    <!-- <p class="msg">Please provide task's name</p> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="describe">Description</label>
-                    <textarea
-                      type="text"
-                      name="describe"
-                      id="describe"
-                      rows="3"
-                      cols="30"
-                      class="form-control"
-                      style="resize: none;"
-                    ></textarea>
-                  </div>
+  <title>Trello Clone</title>
+</head>
 
-                  <div class="form-group">
-                    <label for="estimate">Estimate</label>
-                    <input
-                      type="text"
-                      name="estimate"
-                      id="estimate"
-                      class="form-control"
-                      required
-                    />
-                    <!-- <p class="msg">How long does it take to complete the task?</p> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="deadline">Deadline</label>
-                    <input
-                      type="datetime-local"
-                      name="deadline"
-                      id="deadline"
-                      class="form-control"
-                      required
-                    />
-                    <!-- <p class="msg">When is the dealine?</p> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="creator">Created by</label>
-                    <input
-                      type="text"
-                      name="creator"
-                      id="creator"
-                      class="form-control"
-                      required
-                    />
-                    <!-- <p class="msg">Who are you?</p> -->
-                  </div>
-                  <div class="form-group">
-                    <label for="priority">Priority</label>
-                    <div class="form-check">
-                      <input
-                        type="radio"
-                        name="priority"
-                        value="!!! High"
-                        id="high"
-                        class="form-check-input"
-                      />
-                      <label class="form-check-label" for="high"
-                        >!!! High</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        type="radio"
-                        name="priority"
-                        value="!! Medium"
-                        id="medium"
-                        class="form-check-input"
-                      />
-                      <label class="form-check-label" for="medium"
-                        >!! Medium</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        type="radio"
-                        name="priority"
-                        value="! Low"
-                        id="low"
-                        class="form-check-input"
-                      />
-                      <label class="form-check-label" for="low">! Low</label>
-                    </div>
-                  </div>
-
-                  <!-- Automate the time stamp with JS -->
-                  <div class="form-group">
-                    <label for="date_added">Date Added</label>
-                    <input
-                      type="datetime-local"
-                      name="date_added"
-                      id="date_added"
-                      class="form-control"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="colorCode">Color</label>
-                    <input type="color" name="colorCode" id="colorCode" />
-                  </div>
-                </form>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-outline-dark"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="add btn btn-dark">
-                    Add
-                  </button>
+<body>
+  <h1 class="text-center" style="margin-bottom: 2rem;">Trello Clone</h1>
+  <main class="container-fluid">
+    <article class="row">
+      <!-- 3 Lists -->
+      <section id="todoList" class="col-md rounded pb-md-5 m-1 d-inline-block"
+        style="border: solid 4px green !important;">
+        <h2 class="py-2">To-do</h2>
+        <div class="list"></div>
+      </section>
+      <section id="progressList" class="col-md rounded pb-md-5 m-1 d-inline-block"
+        style="border: solid 4px green !important;">
+        <h2 class="py-2">In progress</h2>
+        <div class="list"></div>
+      </section>
+      <section id="doneList" class="col-md rounded pb-md-5 m-1 d-inline-block"
+        style="border: solid 4px green !important;">
+        <h2 class="py-2">Done</h2>
+        <div class="list"></div>
+      </section>
+      <!-- form & add button -->
+      <button id="addNew" type="button" class="btn btn-primary btn-small offset-1"
+        style="height: 2rem; margin-right: 1rem;" data-toggle="modal">✚</button>
+      </button>
+      <section id="addNewTask" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addNewform"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="newTask modal-title">Add New Task</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form data-state="post" id="taskform" role="form">
+                <div class="form-group">
+                  <label for="taskName">Task's name</label>
+                  <input type="text" name="taskName" id="taskName" class="form-control" required />
+                  <!-- <p class="msg">Please provide task's name</p> -->
                 </div>
+                <div class="form-group">
+                  <label for="describe">Description</label>
+                  <textarea type="text" name="describe" id="describe" rows="3" cols="30" class="form-control"
+                    style="resize: none;"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="estimate">Estimate</label>
+                  <input type="text" name="estimate" id="estimate" class="form-control" required />
+                  <!-- <p class="msg">How long does it take to complete the task?</p> -->
+                </div>
+                <div class="form-group">
+                  <label for="deadline">Deadline</label>
+                  <input type="datetime-local" name="deadline" id="deadline" class="form-control" required />
+                  <!-- <p class="msg">When is the dealine?</p> -->
+                </div>
+                <div class="form-group">
+                  <label for="creator">Created by</label>
+                  <input type="text" name="creator" id="creator" class="form-control" required />
+                  <!-- <p class="msg">Who are you?</p> -->
+                </div>
+                <div class="form-group">
+                  <label for="priority">Priority</label>
+                  <div class="form-check">
+                    <input type="radio" name="priority" value="!!! High" id="high" class="form-check-input" />
+                    <label class="form-check-label" for="high">!!! High</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="priority" value="!! Medium" id="medium" class="form-check-input" />
+                    <label class="form-check-label" for="medium">!! Medium</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="priority" value="! Low" id="low" class="form-check-input" />
+                    <label class="form-check-label" for="low">! Low</label>
+                  </div>
+                </div>
+
+                <!-- Automate the time stamp with JS -->
+                <div class="form-group">
+                  <label for="date_added">Date Added</label>
+                  <input type="datetime-local" name="date_added" id="date_added" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="colorCode">Color</label>
+                  <input type="color" name="colorCode" id="colorCode" />
+                </div>
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
+                  Close
+                </button>
+                <button type="button" class="add btn btn-dark">
+                  Add
+                </button>
               </div>
             </div>
           </div>
-        </section>
-      </article>
-    </main>
+        </div>
+      </section>
+    </article>
+  </main>
 
-    <!-- Clone template -->
-    <template class="card">
-      <article id="cardcontainer" draggable="true" class="card-body">
-        <button class="close">✘</button>
+  <!-- Clone template -->
+  <template>
+    <article id="cardcontainer" draggable="true" class="card text-white bg-dark"
+    style="margin-bottom: 1rem;">
+      <div class="card-header">
+        <button class="close text-white">ⅹ</button>
         <h3 class="card-title"></h3>
-        <div class="wrap">
-          <p class="descr hidden card-text"></p>
-          <p class="priority card-text"></p>
-          <p class="estimate card-text"></p>
+      </div>
+      <h6 class="priority card-subtitle"></h6>
+      <div class="card-text">
+        <p class="descr hidden"></p>
+      <p class="estimate "></p>
+      <p class="deadline "></p>
+      <p class="creator "></p>
+      <p class="date_added"></p>
+      </div>
+     
+      <div class="btns_container d-flex flex-row justify-content-around">
+        <button type="button" class="editbtn btn btn-info">Edit</button>
+        <div class="movebtns">
+          <button type="button btn btn-outline-dark" class="mvleft">
+            ◀︎
+          </button>
+          <button type="button btn btn-outline-dark" class="mvright">
+            ▶︎
+          </button>
         </div>
-        <p class="deadline card-text"></p>
-        <p class="creator card-text"></p>
-        <p class="date_added card-text"></p>
-        <div class="btns_container">
-          <button type="button" class="editbtn btn btn-info"></button>
-          <div class="movebtns">
-            <button type="button btn btn-outline-dark" class="mvleft">
-              ◀︎
-            </button>
-            <button type="button btn btn-outline-dark" class="mvright">
-              ▶︎
-            </button>
-          </div>
-        </div>
-      </article>
-    </template>
+      </div>
+    </article>
+  </template>
 
-    <footer>used boostrap</footer>
-    <!-- <script type="module" src="node_modules/moment/moment.js"></script> -->
-    <!-- <script src="partials/vars.js"></script> -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-      crossorigin="anonymous"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+  <footer>used boostrap</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+
 </html>
