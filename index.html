@@ -21,42 +21,42 @@
   </head>
 
   <body>
-    <h1 class="text-center">Trello Clone</h1>
+    <h1 class="text-center" style="margin-bottom: 2rem;">Trello Clone</h1>
     <main class="container-fluid">
       <article class="row">
         <!-- 3 Lists -->
         <section
           id="todoList"
-          class="col-md border border-dark rounded pb-md-5 m-1 d-inline-block"
-          style="background-color: rgb(214, 209, 253);"
+          class="col-md rounded pb-md-5 m-1 d-inline-block"
+          style="border: solid 4px green !important;"
         >
-          <h2>To-do</h2>
+          <h2 class="py-2">To-do</h2>
           <div class="list"></div>
         </section>
         <section
           id="progressList"
-          class="col-md border border-dark rounded pb-md-5 m-1 d-inline-block"
-          style="background-color: rgb(214, 209, 253);"
+          class="col-md rounded pb-md-5 m-1 d-inline-block"
+          style="border: solid 4px green !important;"
         >
-          <h2>In progress</h2>
+          <h2 class="py-2">In progress</h2>
           <div class="list"></div>
         </section>
         <section
           id="doneList"
-          class="col-md border border-dark rounded pb-md-5 m-1 d-inline-block"
-          style="background-color: rgb(214, 209, 253);"
+          class="col-md rounded pb-md-5 m-1 d-inline-block"
+          style="border: solid 4px green !important;"
         >
-          <h2>Done</h2>
+          <h2 class="py-2">Done</h2>
           <div class="list"></div>
         </section>
         <!-- form & add button -->
         <button
           id="addNew"
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary btn-small offset-1"
+          style="height: 3rem; margin-right: 1rem;"
           data-toggle="modal"
-        >
-          Add
+        >✚</button>
         </button>
         <section
           id="addNewTask"
@@ -69,7 +69,7 @@
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h2 class="newTask modal-title">New Task</h2>
+                <h2 class="newTask modal-title">Add New Task</h2>
                 <button
                   type="button"
                   class="close"
@@ -125,7 +125,7 @@
                       class="form-control"
                       required
                     />
-                    <p class="msg">When is the dealine?</p>
+                    <!-- <p class="msg">When is the dealine?</p> -->
                   </div>
                   <div class="form-group">
                     <label for="creator">Created by</label>
@@ -194,12 +194,12 @@
                 <div class="modal-footer">
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-outline-dark"
                     data-dismiss="modal"
                   >
                     Close
                   </button>
-                  <button type="button" class="add btn btn-primary">
+                  <button type="button" class="add btn btn-dark">
                     Add
                   </button>
                 </div>
