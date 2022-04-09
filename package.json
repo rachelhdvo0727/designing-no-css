@@ -20,7 +20,7 @@
   "homepage": "https://github.com/rachelhdvo0727/designing-no-css#readme",
   "devDependencies": {
     "exports-loader": "^0.7.0",
-    "moment": "^2.25.1",
+    "moment": "^2.29.2",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.3.1",
     "webpack": "^4.43.0",
